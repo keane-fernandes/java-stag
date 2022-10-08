@@ -43,11 +43,28 @@ The StagModel class is mutated by the StagController class.
 
 
 ## StagController
-The StagController class contains the list of valid actions parsed by the StagParser class. To perform an action, a player types a string of text on the command line. This text is interpreted by the StagNLP class to check if it is a valid command in the game list of valid actions.
-
+The StagController class contains the list of valid actions parsed by the StagParser class. To perform an action, a player types a string of text on the command line. This text is interpreted by the StagNLP class where in a trigger word within the string is matched to a valid action. Since each action is unique, the **HashMap** data structure is used to store the various triggers that fall under an action. The key is the action and the value is an ArrayList of triggers for that action.
 
 # Usage
-The game engine server listens for incoming connections from clients on port `8888`. When a connection has been made, the server will receive the incoming command from the connected client 
+
+## Game Setup
+The game server, *StagServer* can be launched along with the two command line arguments being the actions (JSON) file path and entities (DOT) file path as shown below:
+
+```java
+java StagServer actions.json entities.dot
+```
+The game server is now listening for incoming connections from clients on port `8888`.
+
+A player can join the game session by launching the *StagClient* class with the command line argument of the player name as shown below:
+
+```java
+java StagClient PlayerOne
+```
+
+When a connection has been made, the server will receive the incoming commands from the connected client and the game can now be played as intended. The game does support multiplayer, so any additional players will need to launch their own instances of the *StagClient* class with their unique player names.
+
+## Gameplay
+
 
 # License
 
