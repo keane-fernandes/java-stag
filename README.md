@@ -1,15 +1,15 @@
 <h1 align="center">
   <br>
-    <img src=./docs/stag.png alt="DB" width="100"></a>
+    <img src=./docs/STAG.png alt="DB" width="100"></a>
   <br>
   STAG
   <br>
 </h1>
 
-<h4 align="center">A simple text adventure game (STAG) built in Java.</h4>
+<h4 align="center">A simple text adventure game (STAG) engine built in Java.</h4>
 
 <p align="center">
-  <a href="#Features">Key Features</a> |
+  <a href="#Features">Features</a> |
   <a href="#Usage">Usage</a> |
   <a href="#Design">Design</a> |
   <a href="#License">License</a>
@@ -19,14 +19,23 @@
 <img src="./docs/logo.jpg/../stag.gif" width=75% />
 </p>
 
-# Key Features
-- Customised game environment setup via JSON import 
-- Configurable in-game actions using XML/DOT files
+# Features
+- Configurable in-game actions using **JSON** setup files
+- Customised game environment setup via **DOT/XML** import 
 - Supports natural language processing
 - Handles multiple players in the same game session
 
-
 # Design
+The game engine is split into four core classes that do most of the heavy-lifting - StagParser, StagModel, StagController and StagNLP.
+
+## StagParser
+
+The StagParser class is designed to parse two main file types for game initialisation:
+1. An entities file (DOT / XML) which defines in game objects and locations.
+2. An actions file (JSON) which defines the actions a player can perform such as looking around or interacting with an object.
+
+The game engine server listens for incoming connections from clients on port `8888`. When a connection has been made, the server will receive the incoming command from the connected client 
+
 # Usage
 # License
 
