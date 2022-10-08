@@ -26,7 +26,7 @@
 - Handles multiple players in the same game session
 
 # Design
-The game engine is split into four core classes that do most of the heavy-lifting - StagParser, StagModel, StagController and StagNLP.
+The game engine is split into four core classes that do most of the heavy-lifting - *StagParser*, *StagModel*, *StagController* and *StagNLP*.
 
 ## StagParser
 
@@ -34,9 +34,21 @@ The StagParser class is designed to parse two main file types for game initialis
 1. An entities file (DOT / XML) which defines in game objects and locations.
 2. An actions file (JSON) which defines the actions a player can perform such as looking around or interacting with an object.
 
-The game engine server listens for incoming connections from clients on port `8888`. When a connection has been made, the server will receive the incoming command from the connected client 
+Once the game objects, actions and locations are setup via the JSON and DOT files, the class instance is passed on to to the StagModel class.
+
+## StagModel
+The StagModel class stores the current state of the game and includes the list of players currently in game, player inventories, players health and their current locations.
+
+The StagModel class is mutated by the StagController class.
+
+
+## StagController
+The StagController class contains the list of valid actions parsed by the StagParser class. To perform an action, a player types a string of text on the command line. This text is interpreted by the StagNLP class to check if it is a valid command in the game list of valid actions.
+
 
 # Usage
+The game engine server listens for incoming connections from clients on port `8888`. When a connection has been made, the server will receive the incoming command from the connected client 
+
 # License
 
 ```
