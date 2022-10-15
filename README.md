@@ -16,7 +16,7 @@
 </p>
 
 <p align="center">
-<img src="./docs/logo.jpg/../stag.gif" width=75% />
+<img src="./docs/logo.jpg/../STAG.gif" width=75% />
 </p>
 
 # Features
